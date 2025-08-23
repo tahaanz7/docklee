@@ -1,0 +1,8 @@
+{
+  "name": "Jellyfin",
+  "description": "Free software media system that puts you in control.",
+  "logo": "https://jellyfin.org/images/logo.svg",
+  "category": "Media",
+  "default_ports": ["8096"],
+  "docs": "https://jellyfin.org/docs/"
+}

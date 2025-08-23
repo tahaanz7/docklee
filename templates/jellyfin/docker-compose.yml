@@ -1,0 +1,12 @@
+version: "3.3"
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    ports:
+      - ${JF_PORT:-8096}:8096
+    volumes:
+      - ${JF_CONFIG:-./config}:/config
+      - ${JF_CACHE:-./cache}:/cache
+      - ${JF_MEDIA:-./media}:/media
+    restart: unless-stopped
