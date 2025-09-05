@@ -73,6 +73,26 @@ app.post('/install/:appName', (req, res) => {
   });
 });
 
+// Installed apps
+
+app.get('/installed',(req,res)=>{
+  const userAppsDir = path.join(os.homedir(), 'docklee-apps');
+  const installedApps = [];
+
+  if(fs.existsSync(userAppsDir)){
+    fs.readdirSync(userAppsDir).forEach(folder=>{
+    const dockerComposeFile = path.join(userAppsDir,folder, 'docker-compose.yml' )
+    if(fs.existsSync(dockerComposeFile)){
+      
+      installedApps.push({name: folder});
+      
+    }
+  })
+  }
+  
+
+  res.json(installedApps);
+})
 
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`✅ Backend running on http://localhost:${PORT}`);
