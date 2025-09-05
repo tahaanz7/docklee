@@ -25,7 +25,7 @@ function authMiddleware(req, res, next) {
 }
 
 // Route to list apps from /templates
-app.get('/apps', (req, res) => {
+app.get('/apps', authMiddleware, (req, res) => {
   const templatesDir = path.join(__dirname, '../templates');
   const apps = [];
 
@@ -89,9 +89,28 @@ app.get('/installed',(req,res)=>{
     }
   })
   }
-  
-
   res.json(installedApps);
+})
+
+// Uninstall apps
+app.post('/uninstall/:appName', (req, res)=>{
+
+  const appName = req.params.appName;
+  const userAppsDir = path.join(os.homedir(), 'docklee-apps');
+  const appPath = path.join(userAppsDir, appName,'docker-compose.yml');
+
+  if(fs.existsSync(appPath)){
+    // Run docker compose from the copied file
+  exec(`docker compose -f ${appPath} down`, (error, stdout, stderr) => {
+    if (error) {
+      console.error(stderr);
+      return res.status(500).json({ error: "Failed to uninstall app" });
+    }
+    res.json({ message: `${appName} uninstalled successfully!`, output: stdout });
+  });
+  }else {
+  return res.status(404).json({ error: "App not found" });
+}
 })
 
 app.listen(PORT, "0.0.0.0", () => {
