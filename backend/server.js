@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 require('dotenv').config(); 
 const os = require('os');
+import cors from 'cors'
 
 
 // app instance
@@ -12,6 +13,18 @@ const { exec } = require('child_process');
 
 // Middleware to parse JSON bodies
 app.use(express.json());
+
+app.use(cors())
+
+// Allow all origins 
+//app.use(cors())
+
+// onfigure specific origins
+app.use(cors({
+  origin: 'http://localhost:5173', // your Vue dev server URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true // if you’re using cookies/auth
+}))
 
 // Simple auth middleware
 function authMiddleware(req, res, next) {
@@ -25,7 +38,7 @@ function authMiddleware(req, res, next) {
 }
 
 // Route to list apps from /templates
-app.get('/apps', authMiddleware, (req, res) => {
+app.get('/apps', (req, res) => {
   const templatesDir = path.join(__dirname, '../templates');
   const apps = [];
 
