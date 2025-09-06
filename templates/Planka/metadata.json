@@ -1,0 +1,8 @@
+{
+  "name": "Planka",
+  "description": "Open source Trello alternative for project management.",
+  "logo": "https://raw.githubusercontent.com/plankanban/planka/master/client/public/logo.png",
+  "category": "Productivity",
+  "default_ports": ["8082"],
+  "docs": "https://github.com/plankanban/planka"
+}

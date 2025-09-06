@@ -1,0 +1,8 @@
+{
+  "name": "Nextcloud",
+  "description": "Self-hosted productivity platform that keeps you in control.",
+  "logo": "https://nextcloud.com/wp-content/uploads/2020/07/cropped-nextcloud-logo-square-1.png",
+  "category": "Cloud",
+  "default_ports": ["8080"],
+  "docs": "https://docs.nextcloud.com/"
+}

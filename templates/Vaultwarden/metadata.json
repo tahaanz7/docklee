@@ -1,0 +1,8 @@
+{
+  "name": "Vaultwarden",
+  "description": "Lightweight Bitwarden-compatible password manager server.",
+  "logo": "https://raw.githubusercontent.com/dani-garcia/vaultwarden/main/resources/vaultwarden-icon.svg",
+  "category": "Security",
+  "default_ports": ["8081"],
+  "docs": "https://github.com/dani-garcia/vaultwarden"
+}

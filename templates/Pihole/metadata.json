@@ -1,0 +1,8 @@
+{
+  "name": "Pi-hole",
+  "description": "Network-wide ad blocker for your home server.",
+  "logo": "https://pi-hole.net/wp-content/uploads/2016/12/Vortex-R.png",
+  "category": "Networking",
+  "default_ports": ["8083"],
+  "docs": "https://docs.pi-hole.net/"
+}

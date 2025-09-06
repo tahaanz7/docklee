@@ -1,0 +1,8 @@
+{
+  "name": "Portainer",
+  "description": "Container management made easy with a simple UI.",
+  "logo": "https://avatars.githubusercontent.com/u/22225832?s=200&v=4",
+  "category": "Management",
+  "default_ports": ["9000"],
+  "docs": "https://docs.portainer.io/"
+}
